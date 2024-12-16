@@ -1,0 +1,251 @@
+@use "../styles/partials/global";
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/typography"as *;
+
+
+.hero{
+  background-image: url("../assests/images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  position: relative;
+      @include tablet {
+          min-height: 500px;
+      }
+      @include desktop {
+          min-height: 700px;
+      }
+  
+
+  &__title{
+    @include font-family-bold;
+    @include font-properties(24px, 32px);
+    @include mobile-side-padding;
+    color: $white;
+    position: relative;
+    z-index: 1;        
+        @include tablet {
+            @include font-properties(60px, 68px);
+            padding:0 $nonmobile-general-spacing;
+        }   
+        @include desktop {
+            padding: $nonmobile-general-spacing $desktop-side-spacing;
+        }
+    }    
+
+&::after {
+    content: "";
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: $bandsite-black;
+    opacity: 0.5;
+}
+}
+.about {
+  color: $bandsite-black;
+  &-one {
+      @include mobile-side-padding;
+          @include tablet {
+              @include  tablet-side-padding;
+          }
+          @include desktop {
+              padding: 0 $desktop-side-spacing $nonmobile-general-spacing ;
+          }
+  }
+
+  &__title{
+      @include font-family-bold;
+      @include font-properties(24px, 32px);
+          margin-top: 0;
+          margin-bottom: 0;
+          padding-top: 24px;
+          padding-bottom: 16px;
+      @include tablet {
+          @include font-properties(36px, 44px);
+          padding-top: 48px;
+          padding-bottom: $nonmobile-general-spacing;
+      }
+  }
+
+  &__subtitle{
+      @include font-family-bold;
+      @include font-properties(14px, 22px);
+      margin: 0;
+      @include tablet {
+          @include tablet-side-padding;
+          @include font-properties(24px, 32px);
+          width: 100%;
+          padding-bottom: $nonmobile-general-spacing;
+      }
+      @include desktop {
+          padding: 0 80px;
+          padding-bottom: $nonmobile-general-spacing;
+      }
+  }
+
+  &__img {
+      height: 250px;
+      overflow: hidden;
+      background-image: url("../assests/images/band.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+          @include tablet {
+              height: 450px;
+              margin: 0 $nonmobile-general-spacing;
+          }
+          @include desktop {
+              margin: 0 80px;
+          }
+  }
+
+  &__quote{
+      @include font-family-bold;
+      @include font-properties(14px, 22px);
+      @include tablet {
+          @include font-properties(24px, 32px);
+          margin:0 $nonmobile-general-spacing;
+          padding-top: $nonmobile-general-spacing;
+          padding-bottom: $nonmobile-general-spacing;
+          
+          @include desktop {
+              margin: 0 80px;
+          }
+          &--size {
+              @include tablet {
+              font-size: 1.5rem;
+              padding: 0;
+              }
+          }
+      }
+  }
+
+  &-two {
+      @include mobile-side-padding;
+      @include tablet {
+          @include tablet-side-padding;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              padding-top: 48px;
+              padding-bottom: $nonmobile-general-spacing;
+      }
+      @include desktop {
+          padding: $nonmobile-general-spacing $desktop-side-spacing;
+
+      }
+  }
+
+  &__content {
+      @include font-family-normal;
+      @include font-properties(13px, 18px);
+      @include tablet {
+                  @include font-properties(14px, 22px);
+                  width: 49%;
+                  margin-top: 0;
+                  margin-bottom: 0;
+                  padding-right: 0;
+                  padding-left: $nonmobile-general-spacing;
+                  @include desktop {
+                      padding-left: 80px;
+                  }
+      }
+      &--paraTwo {
+          @include tablet {
+              padding-left: 0;
+              padding-right: 36px;
+          }
+          @include desktop {
+              padding-right: 80px;
+
+          }        
+      }
+  }
+}
+
+      //   Gallery styling
+.gallery {
+  @include mobile-side-padding;
+  color: $bandsite-black;
+  background-color: $alabaster;
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+      padding: 0;
+      }
+
+      // The Photo Gallery Warpper-Container
+  &-wrapper {
+      @include tablet {
+          @include tablet-side-padding;
+          padding-bottom: 36px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+      }
+      @include desktop {
+          padding: $nonmobile-general-spacing $desktop-side-spacing;
+
+      }
+  }
+ 
+
+  &__title {
+  @include font-family-bold;
+  @include font-properties(24px, 32px);
+  margin-top: 0;
+  margin-bottom:0;
+  padding-top: 24px;
+  padding-bottom: 16px;
+      @include tablet {
+          @include tablet-side-padding;
+          @include font-properties(36px, 44px);
+          width: 100%;
+          padding-top: 48px;
+          padding-bottom: $nonmobile-general-spacing;
+      }
+          @include desktop {
+          padding: 48px $desktop-side-spacing 0px;
+          margin-bottom: 0;
+      }
+  }
+
+  &__image {
+      max-width: 100%;
+      margin-bottom: 16px;
+      filter: grayscale(100%);
+      transition: filter 1s;
+      @include tablet {
+          max-width: 32%;
+          padding-bottom: 2%;
+          margin-bottom: 0;
+      }
+
+     &:hover {
+          filter: grayscale(0%);
+      }
+      
+      &--bottom {
+          @include tablet {
+              padding-bottom: 0;
+          }
+      }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
