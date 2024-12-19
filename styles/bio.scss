@@ -237,6 +237,46 @@
   }
 }
 
+// comments section styling
+
+.comments {
+    margin:0 $sixteen;
+
+    @include tablet {
+        margin:0 $sixteen*2;
+    }
+
+    @include desktop{
+        margin:0 $sixteen*8;
+    }
+    &__title{
+        @include font-family-bold;
+        @include font-properties(24px, 32px);
+        @include tablet {
+            @include font-properties(36px, 44px);
+        }
+    }
+    &-form{
+        position: relative;
+        /*transition: transform 0.5s;*/
+
+        @include tablet {
+            margin-right: $sixteen*2;
+        }
+        @include desktop{
+            margin-right: 0;
+        }     
+
+    }
+
+
+
+
+
+
+
+}
+
 
 
 
