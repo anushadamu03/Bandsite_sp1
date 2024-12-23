@@ -265,9 +265,191 @@
         }
         @include desktop{
             margin-right: 0;
-        }     
+        } 
+        
+       /* &:focus-within {
+            transform: scale(1.03);
+        }*/
 
-    }
+        &__avatar {
+            @include avatarMobile {
+                background-image: url(../assests/images/Mohan-muruge.jpg);
+                background-position: center;
+                background-size: cover;
+                position :absolute;
+                 top : $sixteen*2;
+                
+                @include tablet{
+                    left : $sixteen*4;
+                }
+                @include desktop{
+                    left : $sixteen*15;
+                }
+              }
+             }
+         &-wrapper {
+                display: flex;
+                flex-direction: column;
+                margin:0 0 $sixteen $sixteen*3;
+                @include tablet {
+                    margin:0 $sixteen*2 $sixteen $sixteen*7;
+    
+                }
+                @include desktop {
+                    margin:0 $sixteen*15 $sixteen $sixteen*18;
+    
+                }
+
+        &__label {
+                    color: $silver;
+                    @include font-family-bold;
+                    @include font-properties(12px, 20px);
+                    margin-top: $sixteen;
+                    margin-bottom: 4px;
+                }
+          &__name {
+                    min-height: 36px;
+                    border-radius: 4px;
+                    padding: 12px;
+                    background-color: $alabaster;
+                    border:1px solid $mercury;
+                        @include tablet {
+                            padding: 16px;
+                            min-height: 48px;
+                        }
+                        &:focus {
+                            outline: none;
+                            border:1px solid $bandsite-black;
+                        }
+    
+                        &:invalid {
+                            outline: none;
+                            border:1px solid #D22D2D;
+                        }
+                    }
+
+          &__comment {
+                        height: 96px;
+                        padding-left: 10px;
+                        border:1px solid $mercury;
+                        border-radius: 5px;
+                        background-color: $alabaster;
+                        padding-bottom: 70px;
+                        &:focus {
+                            outline: none;
+                            border:1px solid $bandsite-black;
+        
+                        }
+                        
+                        &--invalid {
+                            outline: none;
+                            border:1px solid #D22D2D;
+                        }
+                        &:invalid {
+                            outline: none;
+                            border:1px solid #D22D2D;
+                        }
+        
+                    }
+        
+         &__button {
+                        @include font-family-bold;
+                        height: 40px;
+                        width: 100%;
+                        margin-top: $sixteen;
+                        min-width: 150px;
+                        padding:0 $sixteen*2;
+                        align-self: flex-end;
+                        border-radius: 4px;
+                        border: none;
+                        color: $white;
+                        background-color: $bandsite-black;
+                        &:hover {
+                            background-color: black;
+                        }
+                            @include tablet {
+                                width: 30%;
+                            }
+        
+        
+                    }
+                    }
+                
+         &-pre {
+                        @include font-family-normal;
+                        border-bottom:1px solid $mercury;
+                        @include tablet {
+                            margin:0 $sixteen*4;
+                        }
+                        @include desktop {
+                            margin:0 $sixteen*15;
+                        }
+                        &__circle{
+                            @include avatarMobile;
+                            background-color: $mercury;
+                            position: absolute;
+                            left: 0;
+                            top: 16px;
+                            &--pictureClass {
+                                @include avatarMobile;
+                                position: absolute;
+                                left: 0;
+                                top: 16px;
+                                background-color: none;
+                                background-image: url(../assets/images/Mohan-muruge.jpg);
+                                background-position: center;
+                                background-size: cover;
+                            }
+                        }
+              &--topBorder {
+                            margin-top: 16px;
+                            border-top: 1px solid $mercury;
+                        }
+                        &--bottomBorder {
+                            margin-bottom: 16px;
+                        }
+                
+                        &--newBorder {
+                            border-top: 1px solid $mercury;
+                            border-bottom: none;
+                        }
+                
+              &-top{
+                        display: flex;
+                        justify-content: space-between;
+                        position: relative;
+                        &__name{
+                            @include font-tablet-body-properties ;
+                            @include font-family-bold;
+                            margin-left: 48px;
+                
+                        }
+                        &__date {
+                            color: $mercury;
+                            @include font-tablet-body-properties;
+                
+                        }
+                    }
+                
+                        &-bottom{
+                            @include font-properties(14px, 22px);
+                
+                            &__loaded {
+                                margin-top: 0;
+                                margin-left: 48px;
+                                max-width: 100%;
+                                word-wrap: break-word;
+                
+                            }
+                        }
+                    }
+                }
+            }
+                
+                  
+                
+                   
+                
 
 
 
@@ -275,7 +457,14 @@
 
 
 
-}
+
+
+
+
+
+
+
+
 
 
 
