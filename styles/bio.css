@@ -616,4 +616,233 @@ body {
   .gallery__image--bottom {
     padding-bottom: 0;
   }
+}
+
+.comments {
+  margin: 0 16px;
+}
+@media (min-width: 768px) {
+  .comments {
+    margin: 0 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments {
+    margin: 0 128px;
+  }
+}
+.comments__title {
+  font-family: "NunitoSans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+}
+@media (min-width: 768px) {
+  .comments__title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+.comments-form {
+  position: relative;
+  /*transition: transform 0.5s;*/
+  /* &:focus-within {
+       transform: scale(1.03);
+   }*/
+}
+@media (min-width: 768px) {
+  .comments-form {
+    margin-right: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments-form {
+    margin-right: 0;
+  }
+}
+.comments-form__avatar {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background-image: url(../assests/images/Mohan-muruge.jpg);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 32px;
+}
+@media (min-width: 768px) {
+  .comments-form__avatar {
+    left: 64px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments-form__avatar {
+    left: 240px;
+  }
+}
+.comments-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 16px 48px;
+}
+@media (min-width: 768px) {
+  .comments-form-wrapper {
+    margin: 0 32px 16px 112px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments-form-wrapper {
+    margin: 0 240px 16px 288px;
+  }
+}
+.comments-form-wrapper__label {
+  color: #AFAFAF;
+  font-family: "NunitoSans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 20px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+.comments-form-wrapper__name {
+  min-height: 36px;
+  border-radius: 4px;
+  padding: 12px;
+  background-color: #FAFAFA;
+  border: 1px solid #E1E1E1;
+}
+@media (min-width: 768px) {
+  .comments-form-wrapper__name {
+    padding: 16px;
+    min-height: 48px;
+  }
+}
+.comments-form-wrapper__name:focus {
+  outline: none;
+  border: 1px solid #323232;
+}
+.comments-form-wrapper__name:invalid {
+  outline: none;
+  border: 1px solid #D22D2D;
+}
+.comments-form-wrapper__comment {
+  height: 96px;
+  padding-left: 10px;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+  background-color: #FAFAFA;
+  padding-bottom: 70px;
+}
+.comments-form-wrapper__comment:focus {
+  outline: none;
+  border: 1px solid #323232;
+}
+.comments-form-wrapper__comment--invalid {
+  outline: none;
+  border: 1px solid #D22D2D;
+}
+.comments-form-wrapper__comment:invalid {
+  outline: none;
+  border: 1px solid #D22D2D;
+}
+.comments-form-wrapper__button {
+  font-family: "NunitoSans";
+  font-weight: 700;
+  font-style: normal;
+  height: 40px;
+  width: 100%;
+  margin-top: 16px;
+  min-width: 150px;
+  padding: 0 32px;
+  align-self: flex-end;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  background-color: #323232;
+}
+.comments-form-wrapper__button:hover {
+  background-color: black;
+}
+@media (min-width: 768px) {
+  .comments-form-wrapper__button {
+    width: 30%;
+  }
+}
+.comments-form-pre {
+  font-family: "NunitoSans";
+  font-weight: 400;
+  font-style: normal;
+  border-bottom: 1px solid #E1E1E1;
+}
+@media (min-width: 768px) {
+  .comments-form-pre {
+    margin: 0 64px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments-form-pre {
+    margin: 0 240px;
+  }
+}
+.comments-form-pre__circle {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background-color: #E1E1E1;
+  position: absolute;
+  left: 0;
+  top: 16px;
+}
+.comments-form-pre__circle--pictureClass {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 16px;
+  background-color: none;
+  background-image: url(../assets/images/Mohan-muruge.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.comments-form-pre--topBorder {
+  margin-top: 16px;
+  border-top: 1px solid #E1E1E1;
+}
+.comments-form-pre--bottomBorder {
+  margin-bottom: 16px;
+}
+.comments-form-pre--newBorder {
+  border-top: 1px solid #E1E1E1;
+  border-bottom: none;
+}
+.comments-form-pre-top {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.comments-form-pre-top__name {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "NunitoSans";
+  font-weight: 700;
+  font-style: normal;
+  margin-left: 48px;
+}
+.comments-form-pre-top__date {
+  color: #E1E1E1;
+  font-size: 14px;
+  line-height: 22px;
+}
+.comments-form-pre-bottom {
+  font-size: 14px;
+  line-height: 22px;
+}
+.comments-form-pre-bottom__loaded {
+  margin-top: 0;
+  margin-left: 48px;
+  max-width: 100%;
+  word-wrap: break-word;
 }/*# sourceMappingURL=bio.css.map */
