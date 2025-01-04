@@ -1,89 +1,89 @@
-@use "./variables" as *;
-@use "./typography" as *;
+@use "./typography" as*;
+@use "./variables" as*;
+
 
 @mixin font-properties ($text-size, $line-height) {
-  font-size: $text-size;
-  line-height: $line-height;
-  @content;
+    font-size: $text-size;
+    line-height: $line-height;
+    @content;
 }
 
 @mixin font-tablet-body-properties {
-  @include font-properties(14px, 22px);
-  @content;
+    @include font-properties(14px, 22px);
+    @content;
 }
 
 
 @mixin mobile-side-padding {
-  padding:0 16px;
-  @content;
+    padding:0 16px;
+    @content;
 }
 
 
 @mixin tablet-side-padding {
-  padding:0 36px;
-  @content;
+    padding:0 36px;
+    @content;
 }
 
-// mixins for avatars
+
+@mixin logo-styling {
+    max-height: 20px;
+    max-width: 120px;
+    text-decoration: none;
+    color: $white;
+    @content;
+}
+
 
 @mixin avatarMobile {
-  height: 36px;
-  width: 36px;
-  border-radius: 50%;
-  @content;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    @content;
 }
 
 @mixin avatarLarge {
-  border-radius: 50%;
-  height: 48px;
-  width: 48px;
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
 }
 
-// mixins for media queries
+
 @mixin tablet {
-  @media  (min-width: $tablet-breakpoint) {
-    @content;
-  }
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media (min-width: $desktop-breakpoint) {
-    @content;
-  }
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
 }
-// font face mixins
+
 
 @mixin font-family-normal {
-  font-family: "NunitoSans";
-  font-weight: 400;
-  font-style: normal;
-  @content;
-}
-
-
-@mixin font-family-medium {
-  font-family: "NunitoSans";
-  font-weight: 500;
-  font-style: normal;
-  @content;
-
-}
-
-
-@mixin font-family-bold{
-  font-family: "NunitoSans";
-  font-weight: 700;
-  font-style: normal;
-  @content;
-
-}
-
-//setting logo styles
-@mixin logo-styling {
-  max-height: 20px;
-  max-width: 120px;
-  text-decoration: none;
-  color: $white;
-  @content;
-}
-
+    font-family: "NunitoSans";
+    font-weight: 400;
+    font-style: normal;
+    @content;
+  }
+  
+  
+  @mixin font-family-medium {
+    font-family: "NunitoSans";
+    font-weight: 500;
+    font-style: normal;
+    @content;
+  
+  }
+  
+  
+  @mixin font-family-bold{
+    font-family: "NunitoSans";
+    font-weight: 700;
+    font-style: normal;
+    @content;
+  
+  }
+  
