@@ -102,144 +102,94 @@
 
 }
 
-
-
-
-.shows {
-    &-one {
-        @include mobile-side-padding;
-            @include tablet {
-                @include  tablet-side-padding;
-                                position: relative;
-                                padding-top: $sixteen*9;
-            }
-            @include desktop {
-                padding: $sixteen*6 $desktop-side-spacing $nonmobile-general-spacing ;
-                padding-left: $sixteen*23;
-
-            }
-    }
-
-    &__title{
-        @include font-family-bold;
-        @include font-properties(36px, 32px);
-        color: $bandsite-black;
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 24px;
-            padding-bottom: 0;
-        @include tablet {
-            @include font-properties(36px, 44px);
-            position: absolute;
-            top: 0;
-            left: $sixteen*2;
-            padding-top: 48px;
-        }
+.shows__container {
+    background-color: $white;
+    padding: 24px 16px 16px 16px;
+    @include tablet {
+        padding:  24px 16px 16px 36px;
         @include desktop {
-            top: 0;
-            left: $sixteen*8;
-        }
-
-    }
-
-    &__title2{
-        @include font-family-bold;
-        @include font-properties(24px, 32px);
-         display: none;
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 24px;
-            padding-bottom: 0;
-        @include tablet {
-            @include font-properties(36px, 44px);
-            padding-top: 48px;
-        }
-        @include desktop {
-            display: block;
-            visibility: hidden;
-                }
-    }
-    &-tickets {
-        padding-left: 0;
-        list-style-type: none;
-        border-bottom: 1px solid $mercury;
-        @include tablet {
             display: flex;
-            justify-content: space-between;
-            margin-top: 16px;
-            align-self: flex-end;
-
+            padding: 24px 16px 16px 6vw;
         }
-        &-list {
-            min-width: 25%;
-            color: $bandsite-black;
-
-             @include tablet {
-                 align-self: center;
-             }
-           
-            &__date {
-                @include font-family-bold;
-                @include font-properties(13px, 18px);
-                margin-top: 0;
-                margin-bottom: 16px;
-
-            }
-            &__silver {                
-                @include font-family-bold;
-                @include font-properties(10px, 18px);
-                margin-top: 0;
-                margin-bottom: 6px;
-                color: $silver;
-                @include tablet {
-                    @include font-properties(13px, 18px);
-                    position: absolute;
-                    top: $sixteen*8;
-                }
-                @include desktop {
-                    top: $sixteen*4;
-                }
-
-            }
-            &__body {
-                @include font-family-normal;
-                @include font-properties(13px, 18px);
-                margin-top: 0;
-                margin-bottom: 16px;
-
-
-                &--dissapear {
-                    @include tablet {
-                        display: none;
-                    }
-            }
-            
-        }
-
     }
-        &__button {
-            @include font-properties(16px, 20px);
-            @include font-family-normal;
+    
+}
 
-            border: none;
-            height: 40px;
-            width: 100%;
-            background-color: $bandsite-black;
-            border-radius: 4px;
-            color: $white;
-            margin-bottom: 16px;
-            @include tablet {
-                width: 25%;
-                min-width: 150px;
-                padding:0 32px;
-            }
-            @include desktop {
-                width: 21%;
-            }
-            &:hover {
-                background-color: black;
+.shows__title {
+    @include desktop {
+        padding: 0 100px 0 0;
+    }
+}
 
-            }
-        }
+.shows__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    @include tablet {
+        display: table;
+    }
+}
+
+.shows__show {
+    border-top: 1px solid $mercury;
+    padding: 16px 0;
+    box-sizing: border-box;
+    @include tablet {
+        display: flex;
+    }
+}
+
+.shows__show:hover {
+    background-color: $alabaster;
+}
+
+.selected {
+    background-color: $mercury;
+}
+
+.shows__headers {
+    display: flex;
+}
+
+.shows__header {
+    display: none;
+    @include tablet {
+        display: table-cell;
+        width: 230px;
+        padding: 0 10px 0 10px;
+        color: $silver;
+    }
+}
+
+.shows__label {
+    margin: 0 0 4px 0;
+    @include tablet {
+        display: none;
+    }
+}
+
+.shows__info {
+    margin: 0 0 16px 0;
+    width: 230px;
+    @include tablet {
+        display: table-cell;
+        padding: 10px;
+        text-align: left;
+    }
+}
+
+.shows__button {
+     @include font-properties(16px, 20px);
+    @include font-family-normal;
+    text-align: center;
+    background-color: $bandsite-black;
+    color: white;
+    height: 60px ;
+    width:30%;
+    margin-bottom: 20px;
+    @include tablet {
+        display: table-cell;
+        padding: 10px;
     }
 }

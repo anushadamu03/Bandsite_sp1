@@ -53,19 +53,24 @@
                 </div>
         </section>
 
-        <section class="comments">
-            <h2 class="comments__title">Join the Conversation</h2>
-            <form class="comments-form">
-                <div class="comments-form__avatar"></div>
-                <div class="comments-form-wrapper">
-                    <label class="comments-form-wrapper__label" for="name">NAME: </label>
-                    <input class="comments-form-wrapper__name" id="name" type="name" placeholder="Enter your name">
-                    <label class="comments-form-wrapper__label" for="comment">COMMENT: </label>
-                    <input class="comments-form-wrapper__comment"  id="comment" type="text" placeholder="Add a new comment">
-                    <button type = "submit" class="comments-form-wrapper__button" id="submitBtn">COMMENT</button>
+        <div class="conversation__container">
+            <h2 class="conversation__title">Join the Conversation</h2>
+            <div class="conversation__form_container">
+                <div class="conversation__photo_container">
+                    <img class="conversation__photo" src="./assets/images/Mohan-muruge.jpg" alt="converation photo">
                 </div>
-            </form>
-        </section>
+                <form class="conversation__form">
+                    <label for="name"><h4 class="conversation__form_description">NAME</h4></label>
+                    <input class="conversation__form_name" type="text" name="name" id="name" placeholder="Enter your name">
+                    <label for="comment"><h4 class="conversation__form_description">COMMENT</h4></label>
+                    <textarea class="conversation__form_comment" type="text" name="comment" id="comment" placeholder="Add a new comment"></textarea>
+                    <button class="conversation__form_button" type="submit"><h4 class="button__text">COMMENT</h4></button>
+                </form>
+            </div>
+            <div class="comments__container">
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -105,6 +110,9 @@
         <a class="footer__logo" href="index.html"><img class="header__logo"src="../assets/logos/Logo-bandsite.svg" alt ="logo"></a>
         <p class="footer__copyright">Copyright The Bees Knees &copy;2023 All Rights Reserved</p>
     </footer>
-    <script src="scripts/index-pages.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/band-site-api.js"></script>
+    <script type="module" src="./scripts/index-pages.js"></script>
 </body>
 </html>
