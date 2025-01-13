@@ -1,122 +1,135 @@
-let ticketsLoading = [
-    {
-        date: "Mon Sept 09 2024",
-        venue: 'Ronald Lane ',
-        location: 'San Francisco, CA',
-        classDissapear: "none"
 
-    },
-    {
-        date: 'Tue Sept 21 2024',
-        venue: 'Pier 3 East',
-        location: 'San Francisco, CA',
-        classDissapear: "shows-tickets-list__body--dissapear"
-    },
-    {
-        date: 'Sat Oct 12 2024 ',
-        venue: 'View Lounge ',
-        location: 'San Francisco, CA',
-        classDissapear: "shows-tickets-list__body--dissapear"
+// 
+// defining useful functions that dont use the api -------------------------------------------------
+const createTableHeader = () => {
+    const headerRow = document.createElement('div');
+    headerRow.classList.add('shows__headers');
 
-    },
-    {
-        date: 'Sat Nov 16 2024 ',
-        venue: 'Hyatt Agency',
-        location: 'San Francisco, CA',
-        classDissapear: "shows-tickets-list__body--dissapear"
+    const dateLabel = document.createElement('p');
+    dateLabel.classList.add('shows__header');
+    dateLabel.textContent = 'DATE';
+    headerRow.appendChild(dateLabel);
 
-    },
-    {
-        date: 'Fri Nov 29 2024',
-        venue: 'Moscow Center',
-        location: 'San Francisco, CA',
-        classDissapear: "shows-tickets-list__body--dissapear"
+    const venueLabel = document.createElement('p');
+    venueLabel.classList.add('shows__header');
+    venueLabel.textContent = 'VENUE';
+    headerRow.appendChild(venueLabel);
 
-    },
-    {
-        date: 'Wed Dec 18 2024 ',
-        venue: 'Press Club',
-        location: 'San Francisco, CA',
-        classDissapear: "shows-tickets-list__body--dissapear"
+    const locationLabel = document.createElement('p');
+    locationLabel.classList.add('shows__header');
+    locationLabel.textContent = 'LOCATION';
+    headerRow.appendChild(locationLabel);
 
-    },
-]
+    shows__list.appendChild(headerRow);
+};
 
 
-let shows = document.querySelector(".shows-one")
+const createShow = (show) => {
+    const shows__show = document.createElement('div');
+    shows__show.classList.add('shows__show');
+
+    const date_label = document.createElement('p');
+    date_label.classList.add('shows__label');
+    date_label.textContent = 'DATE';
+    shows__show.appendChild(date_label);
+
+    const date_info = document.createElement('h3');
+    date_info.classList.add('shows__info');
+    date_info.textContent = show.date;
+    shows__show.appendChild(date_info);
+
+    const venue_label = document.createElement('p');
+    venue_label.classList.add('shows__label');
+    venue_label.textContent = 'VENUE';
+    shows__show.appendChild(venue_label);
+
+    const venue_info = document.createElement('h4');
+    venue_info.classList.add('shows__info');
+    venue_info.textContent = show.venue;
+    shows__show.appendChild(venue_info);
+
+    const location_label = document.createElement('p');
+    location_label.classList.add('shows__label');
+    location_label.textContent = 'LOCATION';
+    shows__show.appendChild(location_label);
+
+    const location_info = document.createElement('h4');
+    location_info.classList.add('shows__info');
+    location_info.textContent = show.location;
+    shows__show.appendChild(location_info);
+
+    const button = document.createElement('button');
+    button.classList.add('shows__button');
+    button.addEventListener('click', () => {
+        // Remove 'selected' class from all rows
+        document.querySelectorAll('.shows__show').forEach(row => {
+            row.classList.remove('selected');
+        });
+        // Add 'selected' class to the clicked row
+        shows__show.classList.add('selected');
+    });
+
+    const button__text = document.createElement('h4');
+    button__text.classList.add('button__text');
+    button__text.textContent = 'BUY TICKETS';
+    button.appendChild(button__text);
+
+    shows__show.appendChild(button);
 
 
-
-const makeElement = (elementName, className) => {
-    let varName =  document.createElement(elementName)
-    varName.classList.add(className)
-    return varName
-  }
+    shows__list.appendChild(shows__show);
+};
 
 
-let showsTitle = makeElement("h2", "shows__title")
-  showsTitle.innerText = "Shows"
-  shows.append(showsTitle)
+const shows__list = document.querySelector('.shows__list');
+createTableHeader();
+
+// defining functions that use the api -------------------------------------------------
 
 
-let innerLi
+import { BandSiteApi } from './band-site-api.js';
 
-function createLi (innerText, stringName, arrayClassValue, arrayInnerText) {
+// getting the api_key
+const getApiKey = async () => {
+    try {
+      const response = await axios.get('https://unit-2-project-api-25c1595833b2.herokuapp.com/register');
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error registering API key:', error);
+    }
+  };
 
-        let innerLi = makeElement("li", "shows-tickets-list")
+const apiKey = await getApiKey(); // getting the key
+const api = new BandSiteApi(apiKey); // creating an api class
 
-            let innerP1 =  makeElement("p", "shows-tickets-list__silver")
-            innerP1.classList.add(arrayClassValue)
-             innerP1.innerText = innerText
-             innerLi.append(innerP1)
+// display of all shows
+const displayShows = async (api) => {
+    try{
+        const shows__list = document.querySelector('.shows__list');
+        shows__list.innerHTML = ''
+        const showsData = await api.getShows();
+        console.log(showsData);
 
-            let innerP2 =  makeElement("p", "shows-tickets-list__"+stringName)
-             innerP2.innerText = arrayInnerText
+        //for the Date format
+        const options = { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+        };
 
-        innerLi.append(innerP2)
+        showsData.forEach((show) => {
+            const showDate = new Date(show.date).toLocaleDateString('en-US', options);
+            createShow({
+                date: showDate,
+                venue: show.place, 
+                location: show.location
+            });
+        });
+    } catch (error) {
+        console.error('Error creating comments',error);
+    }
+};
 
-    return innerLi
-
-}
-
-
-function createUl (object) {
-    let outerUl = makeElement("ul", "shows-tickets")
-    let innerButton = makeElement("button", "shows-tickets__button")
-
-        innerLi1 = createLi("DATES", "date", object.classDissapear, object.date)
-        innerLi2 = createLi("VENUE", "body", object.classDissapear, object.venue)
-        innerLi3 = createLi("LOCATION", "body", object.classDissapear, object.location)
-
-        innerButton.type = "submit"
-        innerButton.innerText = "BUY TICKETS"
-
-        outerUl.append(innerLi1)
-        outerUl.append(innerLi2)
-        outerUl.append(innerLi3)
-    outerUl.append(innerButton)
-
-    return outerUl
-}
-
-
-
-const createTickets = (array) => {
-    for (let i = 0; i < array.length; i++) {
-        let ticketsArray = createUl(array[i])
-        shows.appendChild(ticketsArray)
-    } 
-    return shows
-}
-
-createTickets(ticketsLoading)
-
-
-let hello = document.querySelectorAll(".shows-tickets__button")
-let venueArray = ["Ronald Lane", "Pier 3 East", "View Lounge ", "Hyatt Agency", "Moscow Center", "Press Club" ]
-for (let i = 0; i < venueArray.length; i++) {
-    document.querySelectorAll(".shows-tickets__button")[i].addEventListener("click", event => {
-        console.log(venueArray[i])
-    })
-}
-
+displayShows(api);

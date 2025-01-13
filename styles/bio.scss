@@ -253,213 +253,137 @@
     }
 }
 
-// comments section styling
+.conversation__container {
+    background-color: $white;
+    padding: 24px 16px 16px 16px;
+    max-width: 600px;
+    margin: auto;
+}
 
-.comments {
-    margin:0 $sixteen;
+.conversation__form_container {
+    display: flex;
+    border-bottom: solid 1px $mercury;
+    padding: 0 0 16px 0;
+}
 
+.conversation__photo {
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin: 32px 16px 0 0;
     @include tablet {
-        margin:0 $sixteen*2;
+        width: 48px; 
+        height: 48px; 
     }
-    @include desktop {
-        margin:0 $sixteen*8;
+}
+
+.conversation__form {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
+.conversation__form_description {
+    color: $silver;
+    margin: 12px 0 4px 0;
+    @include tablet {
+        margin: 16px 0 4px 0;
     }
-    &__title{
-        @include font-family-bold;
-        @include font-properties(24px, 32px);
-        @include tablet {
-            @include font-properties(36px, 32px);
+}
 
-        }
+.conversation__form_name {
+    height: 36px; 
+    font-size: 14px; 
+    @include tablet {
+        height: 48px; 
     }
-    &-form {
-        position: relative;
-        transition: transform 0.5s;
+}
 
-        @include tablet {
-            margin-right: $sixteen*2;
-        }
-        @include desktop {
-            margin-right: 0;
-        }
-
-        &:focus-within {
-            transform: scale(1.03);
-        }
-        &__avatar {
-            @include avatarMobile {
-                background-image: url(../assets/images/Mohan-muruge.jpg);
-                background-position: center;
-                background-size: cover;
-                position: absolute;
-                top: $sixteen*2;
-                @include tablet {
-                    left: $sixteen*4;
-                }
-                @include desktop {
-                    left: $sixteen*15;
-                }
-            }
-        }
-        &-wrapper {
-            display: flex;
-            flex-direction: column;
-            margin:0 0 $sixteen $sixteen*3;
-            @include tablet {
-                margin:0 $sixteen*2 $sixteen $sixteen*7;
-
-            }
-            @include desktop {
-                margin:0 $sixteen*15 $sixteen $sixteen*18;
-
-            }
-
-            &__label {
-                color: $silver;
-                @include font-family-bold;
-                @include font-properties(12px, 20px);
-                margin-top: $sixteen;
-                margin-bottom: 4px;
-
-            }
-
-            &__name {
-                min-height: 36px;
-                border-radius: 4px;
-                padding: 12px;
-                background-color: $alabaster;
-                border:1px solid $mercury;
-                    @include tablet {
-                        padding: 16px;
-                        min-height: 48px;
-                    }
-                    &:focus {
-                        outline: none;
-                        border:1px solid $bandsite-black;
-                    }
-
-                    &:invalid {
-                        outline: none;
-                        border:1px solid #D22D2D;
-                    }
-
-                
-            }
-            &__comment {
-                height: 96px;
-                padding-left: 10px;
-                border:1px solid $mercury;
-                border-radius: 5px;
-                background-color: $alabaster;
-                padding-bottom: 70px;
-                &:focus {
-                    outline: none;
-                    border:1px solid $bandsite-black;
-
-                }
-                
-                &--invalid {
-                    outline: none;
-                    border:1px solid #D22D2D;
-                }
-                &:invalid {
-                    outline: none;
-                    border:1px solid #D22D2D;
-                }
-
-            }
-
-            &__button {
-                @include font-family-bold;
-                height: 40px;
-                width: 100%;
-                margin-top: $sixteen;
-                min-width: 150px;
-                padding:0 $sixteen*2;
-                align-self: flex-end;
-                border-radius: 4px;
-                border: none;
-                color: $white;
-                background-color: $bandsite-black;
-                &:hover {
-                    background-color: black;
-                }
-                    @include tablet {
-                        width: 30%;
-                    }
-
-
-            }
-            }
-        }
-    &-pre {
-        @include font-family-normal;
-        border-bottom:1px solid $mercury;
-        @include tablet {
-            margin:0 $sixteen*4;
-        }
-        @include desktop {
-            margin:0 $sixteen*15;
-        }
-        &__circle{
-            @include avatarMobile;
-            background-color: $mercury;
-            position: absolute;
-            left: 0;
-            top: 16px;
-            &--pictureClass {
-                @include avatarMobile;
-                position: absolute;
-                left: 0;
-                top: 16px;
-                background-color: none;
-                background-image: url(../assets/images/Mohan-muruge.jpg);
-                background-position: center;
-                background-size: cover;
-            }
-        }
-        &--topBorder {
-            margin-top: 16px;
-            border-top: 1px solid $mercury;
-        }
-        &--bottomBorder {
-            margin-bottom: 16px;
-        }
-
-        &--newBorder {
-            border-top: 1px solid $mercury;
-            border-bottom: none;
-        }
-
-    &-top{
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        &__name{
-            @include font-tablet-body-properties ;
-            @include font-family-bold;
-            margin-left: 48px;
-
-        }
-        &__date {
-            color: $mercury;
-            @include font-tablet-body-properties;
-
-        }
+.conversation__form_comment {
+    height: 108px; 
+    margin: 0 0 12px 0;
+    padding-top: 10px; 
+    font-size: 14px; 
+    @include tablet {
+        margin: 0 0 16px 0;
     }
+}
 
-        &-bottom{
-            @include font-properties(14px, 22px);
+.conversation__form_name, 
+.conversation__form_comment {
+    width: 100%;
+    border: 1px solid $mercury; 
+    border-radius: 4px; 
+    box-sizing: border-box;
+    background-color: $alabaster; 
+}
 
-            &__loaded {
-                margin-top: 0;
-                margin-left: 48px;
-                max-width: 100%;
-                word-wrap: break-word;
+.conversation__form_name:focus, 
+.conversation__form_comment:focus {
+    border-color: $bandsite-black; 
+    outline: none; 
+}
 
-            }
-        }
+.conversation__form_name::placeholder,
+.conversation__form_comment::placeholder {
+    color: $bandsite-black; 
+}
 
-  } 
+.comments__text {
+    max-width: 536px;
+}
+
+.comments__comment {
+    display: flex;
+    padding: 16px 0 16px 0;
+    border-bottom: solid 1px $mercury;
+}
+
+.comments__photo {
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    background-color: $mercury;
+    margin: 16px 16px 0 0;
+    @include tablet {
+        width: 48px; 
+        height: 48px; 
+    }
+}
+
+.comments__head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comments__text {
+    margin: 0;
+    width: 75vw;
+}
+
+.comments__date {
+    color: $silver;
+}
+
+.comments__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.comments__like-button, .comments__delete-button {
+    color: $silver;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 10px;
+    margin: 0 0 0 10px;
+    width: 60px;
+    height: 25px;
+}
+
+.comments__like-button:hover, .comments__delete-button:hover {
+    background-color: $mercury;
 }
 
